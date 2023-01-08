@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment 
+  labels:
+    app: backend 
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend 
+    spec:
+      containers:
+      - name: wwweights-backend
+        image: ghcr.io/world-wide-weights/backend:main
+        ports:
+        - containerPort: 3001 

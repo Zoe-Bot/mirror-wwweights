@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deployment 
+  labels:
+    app: auth 
+spec:
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+      - name: wwweights-auth
+        image: ghcr.io/world-wide-weights/auth:main
+        ports:
+        - containerPort: 3002 
